@@ -1,55 +1,52 @@
-import sqlite3
+import requests
+from bs4 import BeautifulSoup
 import json
 
-# Ruta al archivo JSON con las categorías de los jefes
-json_path = "bosses_by_tag.json"
+# URL de la página de Arena Bosses en Tibia Fandom
+url = "https://tibia.fandom.com/wiki/Arena_Bosses"
 
-# Cargar el archivo JSON
-with open(json_path, "r", encoding="utf-8") as f:
-    bosses_by_tag = json.load(f)
+response = requests.get(url)
+soup = BeautifulSoup(response.content, "html.parser")
 
-# Conectar con la base de datos
-conn = sqlite3.connect("data/bontar_data.db")
-cursor = conn.cursor()
+arena_data = []
 
-# Agregar la columna 'spawn_type' si no existe
-try:
-    cursor.execute("ALTER TABLE bosses ADD COLUMN spawn_type TEXT")
-    conn.commit()
-except sqlite3.OperationalError as e:
-    if "duplicate column name" in str(e).lower():
-        print("La columna 'spawn_type' ya existe.")
-    else:
-        raise
+# Buscar todos los encabezados <h2> que tengan un <span class="mw-headline"> y contengan "Arena Bosses"
+headers = soup.find_all("h2")
+tables = []
+for header in headers:
+    span = header.find("span", class_="mw-headline")
+    if span and "Arena Bosses" in span.text:
+        # Extraer el nombre de la arena quitando "Arena Bosses"
+        arena_name_full = span.text.strip()
+        arena_name = arena_name_full.replace("Arena Bosses", "").strip()
+        # Buscar el siguiente elemento <table> con clase "wikitable"
+        table = header.find_next_sibling("table", class_="wikitable")
+        if table:
+            tables.append((arena_name, table))
 
-# Crear un diccionario con el nombre del boss en minúscula y su categoría
-boss_to_spawn_type = {}
-for spawn_type, boss_list in bosses_by_tag.items():
-    for boss in boss_list:
-        boss_to_spawn_type[boss.lower()] = spawn_type
+# Procesar las tablas extraídas
+# Se asume que:
+#   - Las tres primeras tablas corresponden a arenas normales, con spawn_type "arena"
+#   - La última tabla corresponde a arenas de quest, con spawn_type "arena quest"
+results = []
+total_tables = len(tables)
+for idx, (arena_name, table) in enumerate(tables):
+    spawn_type = "arena" if idx < total_tables - 1 else "arena quest"
+    # Extraer las criaturas: buscamos enlaces <a> que sean hijos del table.
+    # Para evitar enlaces no deseados, comprobamos que el href comience con "/wiki/".
+    links = table.find_all("a", href=True)
+    for link in links:
+        href = link.get("href")
+        if href.startswith("/wiki/"):
+            creature_name = link.text.strip()
+            if creature_name:
+                results.append({
+                    "name": creature_name,
+                    "spawn_type": [arena_name.lower(), spawn_type]
+                })
 
-# Asignar la categoría correspondiente a cada boss en la tabla
-cursor.execute("SELECT name FROM bosses")
-all_bosses = cursor.fetchall()
+# Guardar los resultados en un archivo JSON
+with open("arena_bosses.json", "w", encoding="utf-8") as f:
+    json.dump(results, f, ensure_ascii=False, indent=4)
 
-for (boss_name,) in all_bosses:
-    spawn_type = boss_to_spawn_type.get(boss_name.lower(), "special")
-    cursor.execute("""
-        UPDATE bosses
-        SET spawn_type = ?
-        WHERE LOWER(name) = ?
-    """, (spawn_type, boss_name.lower()))
-
-conn.commit()
-
-# Verificar los jefes que quedaron con categoría 'special'
-cursor.execute("SELECT name FROM bosses WHERE spawn_type = 'special'")
-special_bosses = [row[0] for row in cursor.fetchall()]
-
-conn.close()
-
-# Mostrar resultados
-print("Columna 'spawn_type' agregada y actualizada correctamente.")
-print("\nJefes con spawn_type 'special':")
-for boss in special_bosses:
-    print("-", boss)
+print("Extracción completada. Los datos se han guardado en 'arena_bosses.json'.")
