@@ -1,71 +1,75 @@
-import os
 import sqlite3
-import urllib.parse
 
-def rename_folder_files(folder_path):
-    for filename in os.listdir(folder_path):
-        full_path = os.path.join(folder_path, filename)
-        if os.path.isfile(full_path):
-            new_filename = filename.lower()
-            new_full_path = os.path.join(folder_path, new_filename)
-            if filename != new_filename:
-                try:
-                    os.rename(full_path, new_full_path)
-                    print(f"Renombrado: {filename} -> {new_filename}")
-                except Exception as e:
-                    print(f"Error renombrando {filename}: {e}")
-
-def get_image_filename_for_creature(folder_path, creature_name):
-    creature_name = creature_name.lower().strip()
-    for filename in os.listdir(folder_path):
-        full_path = os.path.join(folder_path, filename)
-        if os.path.isfile(full_path):
-            base, ext = os.path.splitext(filename)
-            if base == creature_name:
-                return filename
-    return None
-
-def update_img_urls_for_category(db_path, table_name, category_folder, github_base_url):
+def update_all_text_to_lowercase(db_path="data/bontar_data.db"):
+    """
+    Actualiza el contenido de todas las columnas con tipo de texto (por ejemplo, TEXT o CHAR)
+    de todas las tablas de la base de datos a minúsculas, excepto:
+        - La columna 'image_url' en las tablas 'items' y 'equipaments'
+        - La columna 'account_status' en cualquier tabla (u otra columna con restricciones críticas)
+    """
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
+    
+    # Consultar nombres de tablas (excluyendo las internas)
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%';")
+    tables = cursor.fetchall()
+    
+    # Definir columnas que NO queremos actualizar, independientemente de la tabla
+    columnas_excluidas = {"account_status"}
+    
+    for table in tables:
+        table_name = table[0]
+        # Obtener información de columnas de la tabla
+        cursor.execute(f"PRAGMA table_info({table_name});")
+        columns = cursor.fetchall()  # Cada fila: (cid, name, type, notnull, dflt_value, pk)
+        
+        for column in columns:
+            col_name = column[1]
+            col_type = column[2]
+            
+            # Se salta si la columna está en las excluidas específicas
+            if col_name.lower() in columnas_excluidas:
+                continue
 
-    cursor.execute(f"SELECT id, name, image_url FROM {table_name}")
-    rows = cursor.fetchall()
-
-    for record_id, creature_name, current_url in rows:
-        image_filename = get_image_filename_for_creature(category_folder, creature_name)
-        if image_filename:
-            encoded_filename = urllib.parse.quote(image_filename)  # Esto convierte espacios en %20, etc.
-            new_url = f"{github_base_url}{encoded_filename}"
-            cursor.execute(f"UPDATE {table_name} SET image_url = ? WHERE id = ?", (new_url, record_id))
-            print(f"Actualizado {creature_name}: {new_url}")
-        else:
-            print(f"No se encontró imagen para '{creature_name}' en {category_folder}")
-
+            # Saltear la columna 'image_url' en las tablas 'items' y 'equipaments'
+            if table_name in ['items', 'equipaments'] and col_name.lower() == 'image_url':
+                continue
+            
+            # Revisamos si el tipo de columna es de texto (buscar 'char' o 'text' en el tipo)
+            if col_type and ("char" in col_type.lower() or "text" in col_type.lower()):
+                # Ejecutar la actualización para pasar a minúsculas. Se asegura que solo
+                # se actualicen los registros donde la columna no sea nula.
+                update_query = f"UPDATE {table_name} SET {col_name} = lower({col_name}) WHERE {col_name} IS NOT NULL;"
+                try:
+                    cursor.execute(update_query)
+                    print(f"Tabla '{table_name}', columna '{col_name}' actualizada a minúsculas.")
+                except sqlite3.IntegrityError as e:
+                    print(f"Error actualizando {table_name}.{col_name}: {e}")
+    
     conn.commit()
     conn.close()
+    print("Actualización completa.")
 
-def main():
-    bosses_folder = os.path.join("assets", "bosses")
-    monsters_folder = os.path.join("assets", "monsters")
 
-    print("Renombrando archivos en la carpeta bosses...")
-    rename_folder_files(bosses_folder)
-    print("Renombrando archivos en la carpeta monsters...")
-    rename_folder_files(monsters_folder)
+def obtener_nombres_duplicados(db_path="data/bontar_data.db"):
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+    
+    cursor.execute("""
+        SELECT LOWER(name) AS name_lower, GROUP_CONCAT(name) AS variantes, COUNT(*) AS cantidad
+        FROM monsters
+        GROUP BY name_lower
+        HAVING COUNT(*) > 1
+    """)
+    
+    duplicados = cursor.fetchall()
+    conn.close()
 
-    db_path = os.path.join("data", "bontar_data.db")
+    print("Nombres duplicados al aplicar lower():")
+    for row in duplicados:
+        print(f"- {row[0]} → {row[1]}")
 
-    github_base_bosses = "https://raw.githubusercontent.com/Andreesb/alystarpedia-data/main/assets/bosses/"
-    github_base_monsters = "https://raw.githubusercontent.com/Andreesb/alystarpedia-data/main/assets/monsters/"
-
-    print("\nActualizando imagenes en la tabla 'bosses'...")
-    update_img_urls_for_category(db_path, "bosses", bosses_folder, github_base_bosses)
-
-    print("\nActualizando imagenes en la tabla 'monsters'...")
-    update_img_urls_for_category(db_path, "monsters", monsters_folder, github_base_monsters)
-
-    print("\nProceso completado.")
 
 if __name__ == "__main__":
-    main()
+    update_all_text_to_lowercase("data/bontar_data.db")
+    obtener_nombres_duplicados()
