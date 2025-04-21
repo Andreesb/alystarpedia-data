@@ -40,7 +40,7 @@ def categorize_monsters(db_path="bontar_data.db"):
         elif "event" in name_lower:
             event_monsters.append(name)
         else:
-            others.append(name)
+            others.append(name) 
     
     return quest_monsters, raid_monsters, event_monsters, others
 
