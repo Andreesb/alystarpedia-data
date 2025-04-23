@@ -11,7 +11,7 @@ os.makedirs(OUT_DIR, exist_ok=True)
 resp = requests.get(PAGE, timeout=10)
 resp.raise_for_status()
 soup = BeautifulSoup(resp.text, 'html.parser')
-
+        
 # Ahora buscamos table con clase 'wikitable sortable'
 table = soup.find(
     'table',
