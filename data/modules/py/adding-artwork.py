@@ -1,57 +1,67 @@
-import os
 import sqlite3
+import os
+import re
 
-# Ruta a la carpeta de imágenes
-ART_DIR = 'assets/artworks/creatures'
-# Base de la URL donde se alojan los artworks
-URL_BASE = 'https://raw.githubusercontent.com/andreesb/alystarpedia-data/main/assets/artworks/creatures'
+def update_monster_artwork(db_path: str, artwork_dir: str, base_url: str):
+    """
+    Opens the SQLite database at db_path, ensures the 'artwork' column exists
+    in the 'monsters' table, and updates each monster with a URL to its artwork
+    if a corresponding file exists in artwork_dir. Otherwise, leaves the artwork
+    field as NULL.
+    
+    Matching logic:
+    - Normalize monster names and filenames to lowercase, remove non-alphanumerics.
+    - Strip version suffixes (like ' v8.00') from filenames.
+    - Match when normalized filename starts with normalized monster name.
+    """
+    def normalize(text: str) -> str:
+        # Lowercase, remove accents, non-alphanumeric, collapse whitespace
+        text = text.lower()
+        text = re.sub(r'[^\w\s]', '', text, flags=re.UNICODE)
+        return re.sub(r'\s+', '_', text.strip())
 
-# 1) Renombrar archivos: lowercase + '_' → ' '
-def normalize_filenames(directory):
-    for fname in os.listdir(directory):
-        # sólo JPEGs
-        if not fname.lower().endswith('.jpg'):
-            continue
-        src = os.path.join(directory, fname)
-        # Nuevo nombre: minusculas, guiones bajos a espacios
-        name_only, ext = os.path.splitext(fname)
-        new_name_only = name_only.lower().replace('_', ' ')
-        new_fname = f"{new_name_only}{ext.lower()}"
-        dst = os.path.join(directory, new_fname)
-        if src != dst:
-            os.rename(src, dst)
-            print(f"Renamed: '{src}' → '{dst}'")
-
-# 2) Actualizar la DB
-def update_monster_artwork(db_path):
     conn = sqlite3.connect(db_path)
-    cur = conn.cursor()
-    # Añadir columna artwork si no existe
-    cur.execute("""
-      PRAGMA table_info(monsters)
-    """)
-    cols = [info[1] for info in cur.fetchall()]
-    if 'artwork' not in cols:
-        cur.execute("ALTER TABLE monsters ADD COLUMN artwork TEXT")
-        print("Added 'artwork' column to monsters")
+    cursor = conn.cursor()
 
-    # Leer todos los monsters
-    cur.execute("SELECT id, name FROM monsters")
-    rows = cur.fetchall()
-    for mid, name in rows:
-        # Construir slug igual que el nombre de archivo
-        slug = name.lower().replace(' ', ' ')
-        # Asegúrate de escapar caracteres especiales si los hay
-        url = f"{URL_BASE}/{slug}.jpg"
-        # Actualizar fila
-        cur.execute(
-            "UPDATE monsters SET artwork = ? WHERE id = ?",
-            (url, mid)
-        )
+    # Ensure artwork column exists
+    cursor.execute("PRAGMA table_info(monsters)")
+    cols = [c[1] for c in cursor.fetchall()]
+    if 'artwork' not in cols:
+        cursor.execute("ALTER TABLE monsters ADD COLUMN artwork TEXT")
+
+    # Prepare filename map: normalized base -> actual filename
+    files = [f for f in os.listdir(artwork_dir) if os.path.isfile(os.path.join(artwork_dir, f))]
+    file_map = {}
+    for f in files:
+        base, ext = os.path.splitext(f)
+        # Remove trailing version info: anything after ' v\d'
+        base_clean = re.sub(r'\s+v\d.*$', '', base, flags=re.IGNORECASE)
+        norm = normalize(base_clean)
+        file_map[norm] = f
+
+    # Update each monster
+    cursor.execute("SELECT id, name FROM monsters")
+    for mid, name in cursor.fetchall():
+        key = normalize(name)
+        # find matching file by prefix
+        filename = None
+        if key in file_map:
+            filename = file_map[key]
+        else:
+            # try partial match
+            for norm_file, f in file_map.items():
+                if norm_file.startswith(key):
+                    filename = f
+                    break
+        artwork_url = f"{base_url}{filename}" if filename else None
+        cursor.execute("UPDATE monsters SET artwork = ? WHERE id = ?", (artwork_url, mid))
+
     conn.commit()
     conn.close()
-    print("Updated artwork URLs in database")
 
-if __name__ == '__main__':
-    normalize_filenames(ART_DIR)
-    update_monster_artwork('data/bontar_data.db')
+# Example usage
+update_monster_artwork(
+    db_path="data/bontar_data.db",
+    artwork_dir="assets/artworks/creatures",
+    base_url="https://raw.githubusercontent.com/andreesb/alystarpedia-data/main/assets/artworks/creatures/"
+)
