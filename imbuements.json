@@ -1,0 +1,1577 @@
+[
+  {
+    "imbuement_category": "Fire Damage",
+    "levels": {
+      "basic": [
+        {
+          "name": "Basic Scorch",
+          "percentage": "10%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/b/b0/Basic_Scorch.png/revision/latest?cb=20171026202702&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Fiery Hearts",
+              "quantity": 25
+            }
+          ],
+          "available_for": [
+            "Melee Weapons",
+            "Bows and Crossbows"
+          ]
+        }
+      ],
+      "intricate": [
+        {
+          "name": "Intricate Scorch",
+          "percentage": "25%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/4/4a/Intricate_Scorch.png/revision/latest?cb=20171026202628&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Fiery Hearts",
+              "quantity": 25
+            },
+            {
+              "item": "Green Dragon Scales",
+              "quantity": 5
+            }
+          ],
+          "available_for": [
+            "Melee Weapons",
+            "Bows and Crossbows"
+          ]
+        }
+      ],
+      "powerful": [
+        {
+          "name": "Powerful Scorch",
+          "percentage": "50%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/0/03/Powerful_Scorch.png/revision/latest?cb=20171026202603&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Fiery Hearts",
+              "quantity": 25
+            },
+            {
+              "item": "Green Dragon Scales",
+              "quantity": 5
+            },
+            {
+              "item": "Demon Horns",
+              "quantity": 5
+            }
+          ],
+          "available_for": [
+            "Melee Weapons",
+            "Bows and Crossbows"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "imbuement_category": "Earth Damage",
+    "levels": {
+      "basic": [
+        {
+          "name": "Basic Venom",
+          "percentage": "10%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/c/cf/Basic_Venom.png/revision/latest?cb=20171026202704&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Swamp Grass",
+              "quantity": 25
+            }
+          ],
+          "available_for": [
+            "Melee Weapons",
+            "Bows and Crossbows"
+          ]
+        }
+      ],
+      "intricate": [
+        {
+          "name": "Intricate Venom",
+          "percentage": "25%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/b/b0/Intricate_Venom.png/revision/latest?cb=20171026202630&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Swamp Grass",
+              "quantity": 25
+            },
+            {
+              "item": "Poisonous Slimes",
+              "quantity": 20
+            }
+          ],
+          "available_for": [
+            "Melee Weapons",
+            "Bows and Crossbows"
+          ]
+        }
+      ],
+      "powerful": [
+        {
+          "name": "Powerful Venom",
+          "percentage": "50%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/a/a9/Powerful_Venom.png/revision/latest?cb=20171026202605&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Swamp Grass",
+              "quantity": 25
+            },
+            {
+              "item": "Poisonous Slimes",
+              "quantity": 20
+            },
+            {
+              "item": "Slime Hearts",
+              "quantity": 2
+            }
+          ],
+          "available_for": [
+            "Melee Weapons",
+            "Bows and Crossbows"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "imbuement_category": "Ice Damage",
+    "levels": {
+      "basic": [
+        {
+          "name": "Basic Frost",
+          "percentage": "10%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/e/ec/Basic_Frost.png/revision/latest?cb=20171026202700&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Frosty Hearts",
+              "quantity": 25
+            }
+          ],
+          "available_for": [
+            "Melee Weapons",
+            "Bows and Crossbows"
+          ]
+        }
+      ],
+      "intricate": [
+        {
+          "name": "Intricate Frost",
+          "percentage": "25%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/5/56/Intricate_Frost.png/revision/latest?cb=20171026202626&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Frosty Hearts",
+              "quantity": 25
+            },
+            {
+              "item": "Seacrest Hair",
+              "quantity": 10
+            }
+          ],
+          "available_for": [
+            "Melee Weapons",
+            "Bows and Crossbows"
+          ]
+        }
+      ],
+      "powerful": [
+        {
+          "name": "Powerful Frost",
+          "percentage": "50%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/b/b1/Powerful_Frost.png/revision/latest?cb=20171026202601&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Frosty Hearts",
+              "quantity": 25
+            },
+            {
+              "item": "Seacrest Hair",
+              "quantity": 10
+            },
+            {
+              "item": "Polar Bear Paws",
+              "quantity": 5
+            }
+          ],
+          "available_for": [
+            "Melee Weapons",
+            "Bows and Crossbows"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "imbuement_category": "Energy Damage",
+    "levels": {
+      "basic": [
+        {
+          "name": "Basic Electrify",
+          "percentage": "10%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/9/9f/Basic_Electrify.png/revision/latest?cb=20171026202700&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Rorc Feathers",
+              "quantity": 25
+            }
+          ],
+          "available_for": [
+            "Melee Weapons",
+            "Bows and Crossbows"
+          ]
+        }
+      ],
+      "intricate": [
+        {
+          "name": "Intricate Electrify",
+          "percentage": "25%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/0/01/Intricate_Electrify.png/revision/latest?cb=20171026202625&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Rorc Feathers",
+              "quantity": 25
+            },
+            {
+              "item": "Peacock Feather Fans",
+              "quantity": 5
+            }
+          ],
+          "available_for": [
+            "Melee Weapons",
+            "Bows and Crossbows"
+          ]
+        }
+      ],
+      "powerful": [
+        {
+          "name": "Powerful Electrify",
+          "percentage": "50%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/7/7a/Powerful_Electrify.png/revision/latest?cb=20171026202600&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Rorc Feathers",
+              "quantity": 25
+            },
+            {
+              "item": "Peacock Feather Fans",
+              "quantity": 5
+            },
+            {
+              "item": "Energy Vein",
+              "quantity": 1
+            }
+          ],
+          "available_for": [
+            "Melee Weapons",
+            "Bows and Crossbows"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "imbuement_category": "Death Damage",
+    "levels": {
+      "basic": [
+        {
+          "name": "Basic Reap",
+          "percentage": "10%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/1/1a/Basic_Reap.png/revision/latest?cb=20171026202702&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Piles of Grave Earth",
+              "quantity": 25
+            }
+          ],
+          "available_for": [
+            "Melee Weapons",
+            "Bows and Crossbows"
+          ]
+        }
+      ],
+      "intricate": [
+        {
+          "name": "Intricate Reap",
+          "percentage": "25%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/5/5e/Intricate_Reap.png/revision/latest?cb=20171026202628&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Piles of Grave Earth",
+              "quantity": 25
+            },
+            {
+              "item": "Demonic Skeletal Hands",
+              "quantity": 20
+            }
+          ],
+          "available_for": [
+            "Melee Weapons",
+            "Bows and Crossbows"
+          ]
+        }
+      ],
+      "powerful": [
+        {
+          "name": "Powerful Reap",
+          "percentage": "50%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/2/24/Powerful_Reap.png/revision/latest?cb=20171026202602&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Piles of Grave Earth",
+              "quantity": 25
+            },
+            {
+              "item": "Demonic Skeletal Hands",
+              "quantity": 20
+            },
+            {
+              "item": "Petrified Screams",
+              "quantity": 5
+            }
+          ],
+          "available_for": [
+            "Melee Weapons",
+            "Bows and Crossbows"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "imbuement_category": "Life Leech",
+    "levels": {
+      "basic": [
+        {
+          "name": "Basic Vampirism",
+          "percentage": "5%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/5/53/Basic_Vampirism.png/revision/latest?cb=20171026202704&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Vampire Teeth",
+              "quantity": 25
+            }
+          ],
+          "available_for": [
+            "All Weapons [1] and Armors"
+          ]
+        }
+      ],
+      "intricate": [
+        {
+          "name": "Intricate Vampirism",
+          "percentage": "10%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/7/72/Intricate_Vampirism.png/revision/latest?cb=20171026202630&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Vampire Teeth",
+              "quantity": 25
+            },
+            {
+              "item": "Bloody Pincers",
+              "quantity": 15
+            }
+          ],
+          "available_for": [
+            "All Weapons[1] and Armors"
+          ]
+        }
+      ],
+      "powerful": [
+        {
+          "name": "Powerful Vampirism",
+          "percentage": "25%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/3/3e/Powerful_Vampirism.png/revision/latest?cb=20171026202605&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Vampire Teeth",
+              "quantity": 25
+            },
+            {
+              "item": "Bloody Pincers",
+              "quantity": 15
+            },
+            {
+              "item": "Piece of Dead Brain",
+              "quantity": 5
+            }
+          ],
+          "available_for": [
+            "All Weapons[1] and Armors"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "imbuement_category": "Mana Leech",
+    "levels": {
+      "basic": [
+        {
+          "name": "Basic Void",
+          "percentage": "3%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/9/95/Basic_Void.png/revision/latest?cb=20171026202435&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Rope Belts",
+              "quantity": 25
+            }
+          ],
+          "available_for": [
+            "All Weapons and Helmets"
+          ]
+        }
+      ],
+      "intricate": [
+        {
+          "name": "Intricate Void",
+          "percentage": "5%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/c/c8/Intricate_Void.png/revision/latest?cb=20171026202505&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Rope Belts",
+              "quantity": 25
+            },
+            {
+              "item": "Silencer Claws",
+              "quantity": 25
+            }
+          ],
+          "available_for": [
+            "All Weapons and Helmets"
+          ]
+        }
+      ],
+      "powerful": [
+        {
+          "name": "Powerful Void",
+          "percentage": "8%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/f/fa/Powerful_Void.png/revision/latest?cb=20171026202506&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Rope Belts",
+              "quantity": 25
+            },
+            {
+              "item": "Silencer Claws",
+              "quantity": 25
+            },
+            {
+              "item": "Some Grimeleech Wings",
+              "quantity": 5
+            }
+          ],
+          "available_for": [
+            "All Weapons and Helmets"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "imbuement_category": "Critical Hit",
+    "levels": {
+      "basic": [
+        {
+          "name": "Basic Strike",
+          "percentage": "10%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/f/f0/Basic_Strike.png/revision/latest?cb=20171026202703&path-prefix=en",
+          "astral_sources": [],
+          "available_for": [
+            "20 Protective Charms"
+          ]
+        }
+      ],
+      "intricate": [
+        {
+          "name": "Intricate Strike",
+          "percentage": "10%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/1/16/Intricate_Strike.png/revision/latest?cb=20171026202629&path-prefix=en",
+          "astral_sources": [],
+          "available_for": [
+            "20 Protective Charms",
+            "25 Sabreteeth"
+          ]
+        }
+      ],
+      "powerful": [
+        {
+          "name": "Powerful Strike",
+          "percentage": "10%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/6/63/Powerful_Strike.png/revision/latest?cb=20171026202604&path-prefix=en",
+          "astral_sources": [],
+          "available_for": [
+            "20 Protective Charms",
+            "25 Sabreteeth",
+            "5 Vexclaw Talons"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "imbuement_category": "Death Protection",
+    "levels": {
+      "basic": [
+        {
+          "name": "Basic Lich Shroud",
+          "percentage": "2%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/b/be/Basic_Lich_Shroud.png/revision/latest?cb=20171026202701&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Flasks of Embalming Fluid",
+              "quantity": 25
+            }
+          ],
+          "available_for": [
+            "All[1] Armors",
+            "Shields and Spellbooks"
+          ]
+        }
+      ],
+      "intricate": [
+        {
+          "name": "Intricate Lich Shroud",
+          "percentage": "5%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/7/7f/Intricate_Lich_Shroud.png/revision/latest?cb=20171026202627&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Flasks of Embalming Fluid",
+              "quantity": 25
+            },
+            {
+              "item": "Gloom Wolf Furs",
+              "quantity": 20
+            }
+          ],
+          "available_for": [
+            "All[1] Armors",
+            "Shields and Spellbooks"
+          ]
+        }
+      ],
+      "powerful": [
+        {
+          "name": "Powerful Lich Shroud",
+          "percentage": "10%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/4/4f/Powerful_Lich_Shroud.png/revision/latest?cb=20171026202601&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Flasks of Embalming Fluid",
+              "quantity": 25
+            },
+            {
+              "item": "Gloom Wolf Furs",
+              "quantity": 20
+            },
+            {
+              "item": "Mystical Hourglasses",
+              "quantity": 5
+            }
+          ],
+          "available_for": [
+            "All[1] Armors",
+            "Shields and Spellbooks"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "imbuement_category": "Earth Protection",
+    "levels": {
+      "basic": [
+        {
+          "name": "Basic Snake Skin",
+          "percentage": "3%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/7/7b/Basic_Snake_Skin.png/revision/latest?cb=20171026202703&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Pieces of Swampling Wood",
+              "quantity": 25
+            }
+          ],
+          "available_for": [
+            "All[2] Armors",
+            "Shields and Spellbooks"
+          ]
+        }
+      ],
+      "intricate": [
+        {
+          "name": "Intricate Snake Skin",
+          "percentage": "8%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/c/ce/Intricate_Snake_Skin.png/revision/latest?cb=20171026202629&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Pieces of Swampling Wood",
+              "quantity": 25
+            },
+            {
+              "item": "Snake Skins",
+              "quantity": 20
+            }
+          ],
+          "available_for": [
+            "All[2] Armors",
+            "Shields and Spellbooks"
+          ]
+        }
+      ],
+      "powerful": [
+        {
+          "name": "Powerful Snake Skin",
+          "percentage": "15%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/6/68/Powerful_Snake_Skin.png/revision/latest?cb=20171026202603&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Pieces of Swampling Wood",
+              "quantity": 25
+            },
+            {
+              "item": "Snake Skins",
+              "quantity": 20
+            },
+            {
+              "item": "Brimstone Fangs",
+              "quantity": 10
+            }
+          ],
+          "available_for": [
+            "All[2] Armors",
+            "Shields and Spellbooks"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "imbuement_category": "Fire Protection",
+    "levels": {
+      "basic": [
+        {
+          "name": "Basic Dragon Hide",
+          "percentage": "3%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/6/6b/Basic_Dragon_Hide.png/revision/latest?cb=20171026202659&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Green Dragon Leathers",
+              "quantity": 20
+            }
+          ],
+          "available_for": [
+            "All[3] Armors",
+            "Shields and Spellbooks"
+          ]
+        }
+      ],
+      "intricate": [
+        {
+          "name": "Intricate Dragon Hide",
+          "percentage": "8%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/b/bc/Intricate_Dragon_Hide.png/revision/latest?cb=20171026202625&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Green Dragon Leathers",
+              "quantity": 20
+            },
+            {
+              "item": "Blazing Bones",
+              "quantity": 10
+            }
+          ],
+          "available_for": [
+            "All[3] Armors",
+            "Shields and Spellbooks"
+          ]
+        }
+      ],
+      "powerful": [
+        {
+          "name": "Powerful Dragon Hide",
+          "percentage": "15%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/4/4e/Powerful_Dragon_Hide.png/revision/latest?cb=20171026202600&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Green Dragon Leathers",
+              "quantity": 20
+            },
+            {
+              "item": "Blazing Bones",
+              "quantity": 10
+            },
+            {
+              "item": "Draken Sulphur",
+              "quantity": 5
+            }
+          ],
+          "available_for": [
+            "All[3] Armors",
+            "Shields and Spellbooks"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "imbuement_category": "Ice Protection",
+    "levels": {
+      "basic": [
+        {
+          "name": "Basic Quara Scale",
+          "percentage": "3%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/0/0d/Basic_Quara_Scale.png/revision/latest?cb=20171026202701&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Winter Wolf Furs",
+              "quantity": 25
+            }
+          ],
+          "available_for": [
+            "All[4] Armors",
+            "Shields and Spellbooks"
+          ]
+        }
+      ],
+      "intricate": [
+        {
+          "name": "Intricate Quara Scale",
+          "percentage": "8%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/b/b0/Intricate_Quara_Scale.png/revision/latest?cb=20171026202627&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Winter Wolf Furs",
+              "quantity": 25
+            },
+            {
+              "item": "Thick Furs",
+              "quantity": 15
+            }
+          ],
+          "available_for": [
+            "All[4] Armors",
+            "Shields and Spellbooks"
+          ]
+        }
+      ],
+      "powerful": [
+        {
+          "name": "Powerful Quara Scale",
+          "percentage": "15%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/c/c3/Powerful_Quara_Scale.png/revision/latest?cb=20171026202602&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Winter Wolf Furs",
+              "quantity": 25
+            },
+            {
+              "item": "Thick Furs",
+              "quantity": 15
+            },
+            {
+              "item": "Deepling Warts",
+              "quantity": 10
+            }
+          ],
+          "available_for": [
+            "All[4] Armors",
+            "Shields and Spellbooks"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "imbuement_category": "Energy Protection",
+    "levels": {
+      "basic": [
+        {
+          "name": "Basic Cloud Fabric",
+          "percentage": "3%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/5/52/Basic_Cloud_Fabric.png/revision/latest?cb=20171026202659&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Wyvern Talismans",
+              "quantity": 20
+            }
+          ],
+          "available_for": [
+            "All[5] Armors",
+            "Shields and Spellbooks"
+          ]
+        }
+      ],
+      "intricate": [
+        {
+          "name": "Intricate Cloud Fabric",
+          "percentage": "8%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/d/d8/Intricate_Cloud_Fabric.png/revision/latest?cb=20171026202624&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Wyvern Talismans",
+              "quantity": 20
+            },
+            {
+              "item": "Crawler Head Platings",
+              "quantity": 15
+            }
+          ],
+          "available_for": [
+            "All[5] Armors",
+            "Shields and Spellbooks"
+          ]
+        }
+      ],
+      "powerful": [
+        {
+          "name": "Powerful Cloud Fabric",
+          "percentage": "15%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/1/1b/Powerful_Cloud_Fabric.png/revision/latest?cb=20171026202559&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Wyvern Talismans",
+              "quantity": 20
+            },
+            {
+              "item": "Crawler Head Platings",
+              "quantity": 15
+            },
+            {
+              "item": "Wyrm Scales",
+              "quantity": 10
+            }
+          ],
+          "available_for": [
+            "All[5] Armors",
+            "Shields and Spellbooks"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "imbuement_category": "Holy Protection",
+    "levels": {
+      "basic": [
+        {
+          "name": "Basic Demon Presence",
+          "percentage": "3%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/c/cc/Basic_Demon_Presence.png/revision/latest?cb=20171026202659&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Cultish Robes",
+              "quantity": 25
+            }
+          ],
+          "available_for": [
+            "All[6] Armors",
+            "Shields and Spellbooks"
+          ]
+        }
+      ],
+      "intricate": [
+        {
+          "name": "Intricate Demon Presence",
+          "percentage": "8%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/6/62/Intricate_Demon_Presence.png/revision/latest?cb=20171026202625&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Cultish Robes",
+              "quantity": 25
+            },
+            {
+              "item": "Cultish Masks",
+              "quantity": 25
+            }
+          ],
+          "available_for": [
+            "All[6] Armors",
+            "Shields and Spellbooks"
+          ]
+        }
+      ],
+      "powerful": [
+        {
+          "name": "Powerful Demon Presence",
+          "percentage": "15%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/0/09/Powerful_Demon_Presence.png/revision/latest?cb=20171026202559&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Cultish Robes",
+              "quantity": 25
+            },
+            {
+              "item": "Cultish Masks",
+              "quantity": 25
+            },
+            {
+              "item": "Hellspawn Tails",
+              "quantity": 20
+            }
+          ],
+          "available_for": [
+            "All[6] Armors",
+            "Shields and Spellbooks"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "imbuement_category": "Paralysis Deflection",
+    "levels": {
+      "basic": [
+        {
+          "name": "Basic Vibrancy",
+          "percentage": "15%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/3/39/Basic_Vibrancy.png/revision/latest?cb=20181113031326&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Wereboar Hooves",
+              "quantity": 20
+            }
+          ],
+          "available_for": [
+            "Boots"
+          ]
+        }
+      ],
+      "intricate": [
+        {
+          "name": "Intricate Vibrancy",
+          "percentage": "25%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/f/f7/Intricate_Vibrancy.png/revision/latest?cb=20181113031404&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Wereboar Hooves",
+              "quantity": 20
+            },
+            {
+              "item": "Crystallized Anger",
+              "quantity": 15
+            }
+          ],
+          "available_for": [
+            "Boots"
+          ]
+        }
+      ],
+      "powerful": [
+        {
+          "name": "Powerful Vibrancy",
+          "percentage": "50%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/9/91/Powerful_Vibrancy.png/revision/latest?cb=20181113031441&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Wereboar Hooves",
+              "quantity": 20
+            },
+            {
+              "item": "Crystallized Anger",
+              "quantity": 15
+            },
+            {
+              "item": "Quills",
+              "quantity": 5
+            }
+          ],
+          "available_for": [
+            "Boots"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "imbuement_category": "Walking Speed",
+    "levels": {
+      "basic": [
+        {
+          "name": "Basic Swiftness",
+          "percentage": "10",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/1/18/Basic_Swiftness.png/revision/latest?cb=20181203152325&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Damselfly Wings",
+              "quantity": 15
+            }
+          ],
+          "available_for": [
+            "Boots [1]"
+          ]
+        }
+      ],
+      "intricate": [
+        {
+          "name": "Intricate Swiftness",
+          "percentage": "15",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/a/a8/Intricate_Swiftness.png/revision/latest?cb=20181203152345&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Damselfly Wings",
+              "quantity": 15
+            },
+            {
+              "item": "Compasses",
+              "quantity": 25
+            }
+          ],
+          "available_for": [
+            "Boots [1]"
+          ]
+        }
+      ],
+      "powerful": [
+        {
+          "name": "Powerful Swiftness",
+          "percentage": "30",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/2/25/Powerful_Swiftness.png/revision/latest?cb=20181203152407&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Damselfly Wings",
+              "quantity": 15
+            },
+            {
+              "item": "Compasses",
+              "quantity": 25
+            },
+            {
+              "item": "Waspoid Wings",
+              "quantity": 20
+            }
+          ],
+          "available_for": [
+            "Boots [1]"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "imbuement_category": "Capacity",
+    "levels": {
+      "basic": [
+        {
+          "name": "Basic Featherweight",
+          "percentage": "3%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/3/30/Basic_Featherweight.png/revision/latest?cb=20171106120755&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Fairy Wings",
+              "quantity": 20
+            }
+          ],
+          "available_for": [
+            "Backpacks [2]"
+          ]
+        }
+      ],
+      "intricate": [
+        {
+          "name": "Intricate Featherweight",
+          "percentage": "8%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/d/df/Intricate_Featherweight.png/revision/latest?cb=20171106120756&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Fairy Wings",
+              "quantity": 20
+            },
+            {
+              "item": "Little Bowls of Myrrh",
+              "quantity": 10
+            }
+          ],
+          "available_for": [
+            "Backpacks [2]"
+          ]
+        }
+      ],
+      "powerful": [
+        {
+          "name": "Powerful Featherweight",
+          "percentage": "15%",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/5/54/Powerful_Featherweight.png/revision/latest?cb=20171106120756&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Fairy Wings",
+              "quantity": 20
+            },
+            {
+              "item": "Little Bowls of Myrrh",
+              "quantity": 10
+            },
+            {
+              "item": "Goosebump Leather",
+              "quantity": 5
+            }
+          ],
+          "available_for": [
+            "Backpacks [2]"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "imbuement_category": "Magic Level",
+    "levels": {
+      "basic": [
+        {
+          "name": "Basic Epiphany",
+          "percentage": "1",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/3/3d/Basic_Epiphany.png/revision/latest?cb=20171026202700&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Elvish Talismans",
+              "quantity": 25
+            }
+          ],
+          "available_for": [
+            "All Wands and mage-exclusive Helmets. [1]"
+          ]
+        }
+      ],
+      "intricate": [
+        {
+          "name": "Intricate Epiphany",
+          "percentage": "2",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/c/c1/Intricate_Epiphany.png/revision/latest?cb=20171026202626&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Elvish Talismans",
+              "quantity": 25
+            },
+            {
+              "item": "Broken Shamanic Staffs",
+              "quantity": 15
+            }
+          ],
+          "available_for": [
+            "All Wands and mage-exclusive Helmets. [1]"
+          ]
+        }
+      ],
+      "powerful": [
+        {
+          "name": "Powerful Epiphany",
+          "percentage": "4",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/d/dc/Powerful_Epiphany.png/revision/latest?cb=20171026202600&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Elvish Talismans",
+              "quantity": 25
+            },
+            {
+              "item": "Broken Shamanic Staffs",
+              "quantity": 15
+            },
+            {
+              "item": "Strands of Medusa Hair",
+              "quantity": 15
+            }
+          ],
+          "available_for": [
+            "All Wands and mage-exclusive Helmets. [1]"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "imbuement_category": "Fist Fighting",
+    "levels": {
+      "basic": [
+        {
+          "name": "Basic Punch",
+          "percentage": "1",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/9/90/Basic_Punch.png/revision/latest?cb=20250225193033&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Tarantula Egg",
+              "quantity": 25
+            }
+          ],
+          "available_for": [
+            "All Helmets and Fist Weapons"
+          ]
+        }
+      ],
+      "intricate": [
+        {
+          "name": "Intricate Punch",
+          "percentage": "2",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/3/3a/Intricate_Punch.png/revision/latest?cb=20250226174151&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Tarantula Egg",
+              "quantity": 25
+            },
+            {
+              "item": "Mantassin Tails",
+              "quantity": 20
+            }
+          ],
+          "available_for": [
+            "All Helmets and Fist Weapons"
+          ]
+        }
+      ],
+      "powerful": [
+        {
+          "name": "Powerful Punch",
+          "percentage": "4",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/f/f3/Powerful_Punch.png/revision/latest?cb=20250225193035&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Tarantula Egg",
+              "quantity": 25
+            },
+            {
+              "item": "Mantassin Tails",
+              "quantity": 20
+            },
+            {
+              "item": "Gold-Brocaded Cloth",
+              "quantity": 15
+            }
+          ],
+          "available_for": [
+            "All Helmets and Fist Weapons"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "imbuement_category": "Club Fighting",
+    "levels": {
+      "basic": [
+        {
+          "name": "Basic Bash",
+          "percentage": "1",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/8/89/Basic_Bash.png/revision/latest?cb=20171026202657&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Cyclops Toes",
+              "quantity": 20
+            }
+          ],
+          "available_for": [
+            "All Helmets and Club Weapons"
+          ]
+        }
+      ],
+      "intricate": [
+        {
+          "name": "Intricate Bash",
+          "percentage": "2",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/b/b6/Intricate_Bash.png/revision/latest?cb=20171026202623&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Cyclops Toes",
+              "quantity": 20
+            },
+            {
+              "item": "Ogre Nose Rings",
+              "quantity": 15
+            }
+          ],
+          "available_for": [
+            "All Helmets and Club Weapons"
+          ]
+        }
+      ],
+      "powerful": [
+        {
+          "name": "Powerful Bash",
+          "percentage": "4",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/0/05/Powerful_Bash.png/revision/latest?cb=20171026202530&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Cyclops Toes",
+              "quantity": 20
+            },
+            {
+              "item": "Ogre Nose Rings",
+              "quantity": 15
+            },
+            {
+              "item": "Warmaster's Wristguards",
+              "quantity": 10
+            }
+          ],
+          "available_for": [
+            "All Helmets and Club Weapons"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "imbuement_category": "Sword Fighting",
+    "levels": {
+      "basic": [
+        {
+          "name": "Basic Slash",
+          "percentage": "1",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/0/08/Basic_Slash.png/revision/latest?cb=20171026202703&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Lion's Manes",
+              "quantity": 25
+            }
+          ],
+          "available_for": [
+            "All Helmets and Sword Weapons"
+          ]
+        }
+      ],
+      "intricate": [
+        {
+          "name": "Intricate Slash",
+          "percentage": "2",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/f/f7/Intricate_Slash.png/revision/latest?cb=20171026202628&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Lion's Manes",
+              "quantity": 25
+            },
+            {
+              "item": "Mooh'tah Shells",
+              "quantity": 25
+            }
+          ],
+          "available_for": [
+            "All Helmets and Sword Weapons"
+          ]
+        }
+      ],
+      "powerful": [
+        {
+          "name": "Powerful Slash",
+          "percentage": "4",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/1/12/Powerful_Slash.png/revision/latest?cb=20171026202603&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Lion's Manes",
+              "quantity": 25
+            },
+            {
+              "item": "Mooh'tah Shells",
+              "quantity": 25
+            },
+            {
+              "item": "War Crystals",
+              "quantity": 5
+            }
+          ],
+          "available_for": [
+            "All Helmets and Sword Weapons"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "imbuement_category": "Axe Fighting",
+    "levels": {
+      "basic": [
+        {
+          "name": "Basic Chop",
+          "percentage": "1",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/e/ee/Basic_Chop.png/revision/latest?cb=20171026202658&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Orc Teeth",
+              "quantity": 20
+            }
+          ],
+          "available_for": [
+            "All Helmets and Axe Weapons"
+          ]
+        }
+      ],
+      "intricate": [
+        {
+          "name": "Intricate Chop",
+          "percentage": "2",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/5/5e/Intricate_Chop.png/revision/latest?cb=20171026202624&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Orc Teeth",
+              "quantity": 20
+            },
+            {
+              "item": "Battle Stones",
+              "quantity": 25
+            }
+          ],
+          "available_for": [
+            "All Helmets and Axe Weapons"
+          ]
+        }
+      ],
+      "powerful": [
+        {
+          "name": "Powerful Chop",
+          "percentage": "4",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/c/cf/Powerful_Chop.png/revision/latest?cb=20171026202558&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Orc Teeth",
+              "quantity": 20
+            },
+            {
+              "item": "Battle Stones",
+              "quantity": 25
+            },
+            {
+              "item": "Moohtant Horns",
+              "quantity": 20
+            }
+          ],
+          "available_for": [
+            "All Helmets and Axe Weapons"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "imbuement_category": "Distance Fighting",
+    "levels": {
+      "basic": [
+        {
+          "name": "Basic Precision",
+          "percentage": "1",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/2/2d/Basic_Precision.png/revision/latest?cb=20171026202701&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Elven Scouting Glasses",
+              "quantity": 25
+            }
+          ],
+          "available_for": [
+            "All Helmets",
+            "Bows and Crossbows"
+          ]
+        }
+      ],
+      "intricate": [
+        {
+          "name": "Intricate Precision",
+          "percentage": "2",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/d/da/Intricate_Precision.png/revision/latest?cb=20171026202627&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Elven Scouting Glasses",
+              "quantity": 25
+            },
+            {
+              "item": "Elven Hoofs",
+              "quantity": 20
+            }
+          ],
+          "available_for": [
+            "All Helmets",
+            "Bows and Crossbows"
+          ]
+        }
+      ],
+      "powerful": [
+        {
+          "name": "Powerful Precision",
+          "percentage": "4",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/a/ad/Powerful_Precision.png/revision/latest?cb=20171026202601&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Elven Scouting Glasses",
+              "quantity": 25
+            },
+            {
+              "item": "Elven Hoofs",
+              "quantity": 20
+            },
+            {
+              "item": "Metal Spikes",
+              "quantity": 10
+            }
+          ],
+          "available_for": [
+            "All Helmets",
+            "Bows and Crossbows"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "imbuement_category": "Shielding",
+    "levels": {
+      "basic": [
+        {
+          "name": "Basic Blockade",
+          "percentage": "1",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/6/67/Basic_Blockade.png/revision/latest?cb=20171026202658&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Pieces of Scarab Shell",
+              "quantity": 20
+            }
+          ],
+          "available_for": [
+            "All Helmets",
+            "Shields and Spellbooks"
+          ]
+        }
+      ],
+      "intricate": [
+        {
+          "name": "Intricate Blockade",
+          "percentage": "2",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/5/59/Intricate_Blockade.png/revision/latest?cb=20171026202624&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Pieces of Scarab Shell",
+              "quantity": 20
+            },
+            {
+              "item": "Brimstone Shells",
+              "quantity": 25
+            }
+          ],
+          "available_for": [
+            "All Helmets",
+            "Shields and Spellbooks"
+          ]
+        }
+      ],
+      "powerful": [
+        {
+          "name": "Powerful Blockade",
+          "percentage": "4",
+          "image_url": "https://static.wikia.nocookie.net/tibia/images/8/80/Powerful_Blockade.png/revision/latest?cb=20171026202531&path-prefix=en",
+          "astral_sources": [
+            {
+              "item": "Pieces of Scarab Shell",
+              "quantity": 20
+            },
+            {
+              "item": "Brimstone Shells",
+              "quantity": 25
+            },
+            {
+              "item": "Frazzle Skins",
+              "quantity": 25
+            }
+          ],
+          "available_for": [
+            "All Helmets",
+            "Shields and Spellbooks"
+          ]
+        }
+      ]
+    }
+  }
+]

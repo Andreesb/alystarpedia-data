@@ -1,101 +1,97 @@
-import os
-import sqlite3
 import requests
+from bs4 import BeautifulSoup, NavigableString, Tag
+import json, time, re
 
-def actualizar_columnas_required_item(db_path):
-    """
-    Abre la base de datos, en la tabla 'imbues' agrega las columnas 'item1', 'item2' y 'item3'
-    (si no existen) y actualiza cada registro dividiendo el valor en 'required_item' (separado por comas)
-    en dichos campos.
-    """
-    conn = sqlite3.connect(db_path)
-    cursor = conn.cursor()
+IMBUING_URL = "https://tibia.fandom.com/wiki/Imbuing"
+HEADERS = {"User-Agent":"imbuement-scraper/1.0"}
 
-    # Verificar si las columnas ya existen; en SQLite se pueden obtener los nombres de columnas de la tabla.
-    cursor.execute("PRAGMA table_info(imbues)")
-    columnas = [row[1] for row in cursor.fetchall()]
+def fetch_soup(url):
+    r = requests.get(url, headers=HEADERS); r.raise_for_status()
+    return BeautifulSoup(r.text, "html.parser")
 
-    # Agregar las columnas si no existen:
-    if "item1" not in columnas:
-        cursor.execute("ALTER TABLE imbues ADD COLUMN item1 TEXT")
-    if "item2" not in columnas:
-        cursor.execute("ALTER TABLE imbues ADD COLUMN item2 TEXT")
-    if "item3" not in columnas:
-        cursor.execute("ALTER TABLE imbues ADD COLUMN item3 TEXT")
-    conn.commit()
+def parse_astral_sources(cell):
+    sources = []
+    for a in cell.find_all("a", href=True):
+        name = a.get_text(strip=True)
+        qty_node = a.previous_sibling
+        if qty_node and isinstance(qty_node, (str, NavigableString)):
+            m = re.search(r"(\d+)", qty_node)
+            if m:
+                sources.append({"item": name, "quantity": int(m.group(1))})
+    return sources
 
-    # Seleccionar todos los registros de la tabla
-    cursor.execute("SELECT rowid, required_item FROM imbues")
-    registros = cursor.fetchall()
+def get_level_image(imbue_url):
+    """Descarga la página del imbuement y devuelve la URL de su imagen principal."""
+    soup = fetch_soup(imbue_url)
 
-    for rowid, required_item in registros:
-        # Si existe valor, separamos por comas
-        if required_item:
-            partes = [parte.strip() for parte in required_item.split(",")]
-            # Asumir hasta tres elementos; si hay menos, se asignan cadenas vacías
-            item1 = partes[0] if len(partes) > 0 else ""
-            item2 = partes[1] if len(partes) > 1 else ""
-            item3 = partes[2] if len(partes) > 2 else ""
-        else:
-            item1, item2, item3 = "", "", ""
-        # Actualizar el registro con las nuevas columnas
-        cursor.execute("""
-            UPDATE imbues
-            SET item1 = ?, item2 = ?, item3 = ?
-            WHERE rowid = ?
-        """, (item1, item2, item3, rowid))
-    conn.commit()
-    conn.close()
-    print("Actualización de columnas de required_item completada.")
+    # 1) Intenta obtener la imagen del infobox nuevo (portable-infobox)
+    img = soup.select_one("aside.portable-infobox img")
+    if img and img.has_attr("src"):
+        return img["src"]
 
-def descargar_imagenes_imbues(db_path, output_folder):
-    """
-    Abre la base de datos, recorre la tabla 'imbues' y descarga las imágenes de la columna
-    'imbue_img_url' en la carpeta especificada, usando el valor de 'name' para generar el nombre
-    del archivo.
-    """
-    # Crear la carpeta de destino si no existe
-    if not os.path.exists(output_folder):
-        os.makedirs(output_folder)
-    
-    conn = sqlite3.connect(db_path)
-    cursor = conn.cursor()
-    cursor.execute("SELECT imbue_name, imbue_img_url FROM imbues")
-    imbues = cursor.fetchall()
-    conn.close()
+    # 2) Si no existe, busca en el formato clásico de Fandom (thumbimage)
+    img = soup.find("img", class_="thumbimage")
+    if img and img.has_attr("src"):
+        return img["src"]
 
-    for nombre, img_url in imbues:
-        if img_url and img_url.strip() != "":
-            try:
-                response = requests.get(img_url)
-                if response.status_code == 200:
-                    # Generar un nombre de archivo limpio: en minúsculas
-                    nombre_archivo = nombre.strip().lower()
-                    # Intentar obtener la extensión de la imagen a partir de la URL
-                    _, ext = os.path.splitext(img_url)
-                    if not ext:
-                        ext = ".png"
-                    filename = f"{nombre_archivo}{ext}"
-                    filepath = os.path.join(output_folder, filename)
-                    with open(filepath, "wb") as f:
-                        f.write(response.content)
-                    print(f"Descargada imagen para '{nombre}': {filepath}")
-                else:
-                    print(f"Error al descargar imagen para '{nombre}' - Código: {response.status_code}")
-            except Exception as e:
-                print(f"Excepción al descargar imagen para '{nombre}'. URL: {img_url}. Detalle: {e}")
-        else:
-            print(f"No hay URL de imagen para '{nombre}'.")
+    # 3) Fallback a cualquier img dentro de .pi-image o .pi-data.pi-image
+    img = soup.select_one("figure.pi-item.pi-data.pi-image img")
+    if img and img.has_attr("src"):
+        return img["src"]
 
-def main():
-    db_path = "data/bontar_data.db"  # Reemplaza por la ruta de tu base de datos
-    output_folder = "imbuements"   # Carpeta donde se descargarán las imágenes
+    return None# por brevedad
 
-    print("Actualizando la tabla 'imbues'...")
-    actualizar_columnas_required_item(db_path)
+def scrape_imbuements():
+    soup = fetch_soup(IMBUING_URL)
+    result = []
 
-    print("Descargando imágenes de imbues...")
-    descargar_imagenes_imbues(db_path, output_folder)
+    for h4 in soup.find_all("h4"):
+        span = h4.find("span", class_="mw-headline")
+        if not span: continue
+        category = span.get_text().strip()
+        if category.lower() == "references":
+            continue
+
+        table = h4.find_next_sibling("table", class_="wikitable sortable")
+        levels = {"basic":[], "intricate":[], "powerful":[]}
+
+        if table:
+            for tr in table.tbody.find_all("tr"):
+                tds = tr.find_all("td")
+                if len(tds) < 4: continue
+
+                a = tds[0].find("a", href=True)
+                name = a.get_text(strip=True)
+                url  = "https://tibia.fandom.com" + a["href"]
+                image_url = get_level_image(url)
+                pct   = tds[1].get_text(strip=True)
+                astral = parse_astral_sources(tds[2])
+                avail = [x.strip() for x in tds[3].get_text().split(",")]
+
+
+                low = name.lower()
+                if "basic" in low:      key = "basic"
+                elif "intricate" in low:key = "intricate"
+                elif "powerful" in low: key = "powerful"
+
+                levels[key].append({
+                    "name": name,
+                    "percentage": pct,
+                    "image_url": image_url,
+                    "astral_sources": astral,
+                    "available_for": avail
+                })
+
+        result.append({
+            "imbuement_category": category,
+            "levels": levels
+        })
+
+    with open("imbuements.json","w",encoding="utf-8") as f:
+        json.dump(result, f, ensure_ascii=False, indent=2)
+
+    return result
 
 if __name__ == "__main__":
-    main()
+    data = scrape_imbuements()
+    print(f"Extraídas {len(data)} categorías.")
