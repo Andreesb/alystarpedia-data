@@ -1,0 +1,71 @@
+[
+    {
+        "domain": ".tibia.com",
+        "expiry": 1772770024,
+        "httpOnly": true,
+        "name": "DeviceCookie",
+        "path": "/",
+        "sameSite": "None",
+        "secure": true,
+        "value": "HKVldVmHWNwZ%2BSUK4OfcmOMY0FlDh0w%3D%2CmbM7rU%2FnzkS5goJsWzhsAQ%3D%3D%2CSDx1fyxlnTebaO9164gNQA%3D%3D"
+    },
+    {
+        "domain": ".tibia.com",
+        "expiry": 1772770024,
+        "httpOnly": true,
+        "name": "SessionLastVisit",
+        "path": "/",
+        "sameSite": "None",
+        "secure": true,
+        "value": "1741234001"
+    },
+    {
+        "domain": ".tibia.com",
+        "expiry": 1772770026,
+        "httpOnly": false,
+        "name": "CookieConsentPreferences",
+        "path": "/",
+        "sameSite": "None",
+        "secure": true,
+        "value": "%7B%22consent%22%3Atrue%2C%22advertising%22%3Atrue%2C%22socialmedia%22%3Atrue%2C%22walletconnect%22%3Atrue%7D"
+    },
+    {
+        "domain": ".tibia.com",
+        "httpOnly": true,
+        "name": "SecureSessionID",
+        "path": "/",
+        "sameSite": "None",
+        "secure": true,
+        "value": "cN8ZUH0ANKtdUlaARGdFIuZjDO6JPt"
+    },
+    {
+        "domain": "www.tibia.com",
+        "expiry": 1741237593,
+        "httpOnly": false,
+        "name": "cf_chl_rc_ni",
+        "path": "/",
+        "sameSite": "None",
+        "secure": true,
+        "value": "5"
+    },
+    {
+        "domain": ".tibia.com",
+        "expiry": 1742270785,
+        "httpOnly": true,
+        "name": "DM_SessionID",
+        "path": "/",
+        "sameSite": "None",
+        "secure": true,
+        "value": "451cb05cb15c5534395b9a80e8a618331741233963"
+    },
+    {
+        "domain": ".tibia.com",
+        "expiry": 1742270785,
+        "httpOnly": true,
+        "name": "DM_LandingPage",
+        "path": "/",
+        "sameSite": "None",
+        "secure": true,
+        "value": "visited"
+    }
+]
