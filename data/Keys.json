@@ -327,7 +327,7 @@
     "location": {
       "find": [
         "../html/mapper.html?x=1957&y=4495&floor=3&zoom=1.5",
-        "..http://127.0.0.1:5500/html/mapper.html?x=1955&y=4528&floor=3&zoom=1.5"
+        "../html/mapper.html?x=1955&y=4528&floor=3&zoom=1.5"
       ],
       "use": [
         "../html/mapper.html?x=1958&y=4522&floor=3&zoom=1.5"
