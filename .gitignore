@@ -1,9 +1,11 @@
 /api-bontar
 /node_modules
-
+/psd
 .log
 
 .cache
+
+.psd
 
 .vscode
 
