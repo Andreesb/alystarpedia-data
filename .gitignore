@@ -9,6 +9,6 @@
 
 /data
 
-.db
+bontar_data.db
 .env
 
