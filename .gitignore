@@ -2,12 +2,9 @@
 /node_modules
 /psd
 .log
-
 .cache
-
 .psd
-
 .vscode
-
 .gpt
 
+/data
