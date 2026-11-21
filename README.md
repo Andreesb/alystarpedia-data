@@ -22,3 +22,7 @@ Datos que apoyan la creación de contenido, como tablas, fórmulas y estadístic
 ## License
 
 La información y datos contenidos en este repositorio se distribuyen bajo términos internos de uso y autorización para el proyecto Alystarpedia. Consulta los documentos internos para más detalles sobre derechos y uso de la información.
+
+## Sprite provenance
+
+See [shared sprite recovery](docs/sprite-recovery-2026-11-21.md) and its per-entity source manifest. Shared image content is valid for different creatures and is retained under each entity name. Tibia and its graphics belong to CipSoft; this project is not affiliated with CipSoft.
